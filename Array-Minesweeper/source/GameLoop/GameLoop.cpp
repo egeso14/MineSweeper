@@ -3,7 +3,7 @@
 #include <iostream>
 #include "..\..\header\Sound\SoundManager.h"
 
-GameState GameLoop::current_state = GameState::SPLASH_SCREEN;
+GameState GameLoop::current_state = GameState::GAMEPLAY;
 
 GameLoop::GameLoop() { initialize(); }
 

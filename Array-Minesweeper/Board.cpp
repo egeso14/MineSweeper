@@ -11,7 +11,12 @@ namespace Gameplay
 	{
 		initializeBoardImage();
 		boardSprite.setPosition(boardPosition, 0.f);
+        createBoard();
 	}
+    void Board::createBoard()
+    {
+        cell = std::make_unique<Cell>(83, 83, sf::Vector2i(0, 0));
+    }
     void Board::initializeBoardImage() {
         if (!boardTexture.loadFromFile(boardTexturePath)) {
             std::cerr << "Failed to load board texture!" << std::endl;
@@ -27,5 +32,6 @@ namespace Gameplay
     void Board::render(sf::RenderWindow& window)
     {
         window.draw(boardSprite);
+        cell->render(window);
     }
 } 

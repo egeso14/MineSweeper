@@ -1,6 +1,10 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include <random>
+#include "Cell.h"
+#include <memory>
+
 
 namespace Gameplay
 {
@@ -18,6 +22,9 @@ namespace Gameplay
 
         void initializeBoardImage();
         void initialize();
+        void createBoard();
+
+        std::unique_ptr<Cell> cell;
 
     public:
 
