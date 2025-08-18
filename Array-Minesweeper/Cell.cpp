@@ -15,6 +15,27 @@ namespace Gameplay{
 		initialize(width, height, position);
 	}
 	
+	void Cell::setCellTexture()
+	{
+		sf::IntRect textureRectangle;
+		switch (currentState) {
+		case CellState::Hidden:
+			textureRectangle = sf::IntRect::Rect(10 * tile_size, 0, tile_size, tile_size);
+			break;
+		case CellState::Flagged:
+			textureRectangle = sf::IntRect::Rect(11 * tile_size, 0, tile_size, tile_size);
+			break;
+		case CellState::Open:
+			int index = static_cast<int>(type);
+			textureRectangle = sf::IntRect::Rect(index * tile_size, 0, tile_size, tile_size);
+			break;
+		default:
+			break;
+		}
+
+		cell_button->setTextureRect(textureRectangle);
+	}
+
 	void Cell::render(sf::RenderWindow& window)
 	{
 		if (cell_button)
